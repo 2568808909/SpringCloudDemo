@@ -1,2 +1,11 @@
 server:
   port: 80  #由于提供给外部访问的系统基本不会通过端口来访问的，而是使用默认端口80进行访问的，其实用nginx搭建服务器集群也是这样
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+spring:
+  application:
+    name: cloud-order-service
