@@ -11,16 +11,16 @@ import lombok.ToString;
 @ToString
 public class CommonResult {
 
-    public transient final static int SUCCESS_CODE = 0;
+    public transient final static Integer SUCCESS_CODE = 0;
 
     public transient final static String SUCCESS_MSG = "ok";
 
-    public transient final static int DEFAULT_FAIL_CODE = -1;
+    public transient final static Integer DEFAULT_FAIL_CODE = -1;
 
     public transient final static String DEFAULT_FAIL_MSG = "fail";
 
 
-    private int code;
+    private Integer code;
 
     private String msg;
 
