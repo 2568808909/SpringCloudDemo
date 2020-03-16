@@ -59,4 +59,18 @@ public class PaymentController {
     public Integer lb() {
         return port;
     }
+
+    /**
+     * Feign默认超时时间为1s，这里是模拟业务执行时间为3s的情况，造成超时
+     * @return 端口
+     */
+    @GetMapping("/timeout")
+    public Integer timeout(){
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return port;
+    }
 }

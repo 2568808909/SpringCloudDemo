@@ -3,12 +3,10 @@ package com.ccb.springcloud.controller;
 import com.ccb.springcloud.common.entities.CommonResult;
 import com.ccb.springcloud.service.feign.PaymentFeign;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/consumer/order")
 public class OrderController {
 
     @Autowired
@@ -22,5 +20,10 @@ public class OrderController {
     @GetMapping("/get/{id}")
     public CommonResult get(@PathVariable("id") Long id) {
         return paymentFeign.getPayment(id);
+    }
+
+    @GetMapping("/timeout")
+    public Integer timeout() {
+        return paymentFeign.timout();
     }
 }

@@ -5,14 +5,16 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-@FeignClient("CLOUD-PAYMENT-SERVICE")
+@FeignClient("CLOUD-PAYMENT-SERVICE") //配置需要调用的服务名，区分大小写
 public interface PaymentFeign {
 
-    @PostMapping("/create")
+    @PostMapping("/payment/create")
     CommonResult create();
 
-    @GetMapping("/get/{id}")
+    @GetMapping("/payment/get/{id}")
     CommonResult getPayment(@PathVariable("id") Long id);
+
+    @GetMapping("/payment/timeout")
+    Integer timout();
 }
