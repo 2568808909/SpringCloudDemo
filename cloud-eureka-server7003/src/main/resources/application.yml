@@ -9,4 +9,8 @@ eureka:
     #false因为本身就是注册中心，不需要再向注册中心获取其他服务的地址
     fetch-registry: false
     service-url:
-      defaultZone: http://eureka7001:7001/eureka,http://eureka7002:7002/eureka
+      # defaultZone: http://eureka7001:7001/eureka,http://eureka7002:7002/eureka #配置Eureka集群需要指向另外所欲的Eureka节点
+      defaultZone: http://eureka7003:7003/eureka #配置单机版Eureka只需要指向自己即可
+  server:
+    enable-self-preservation: false #关闭自我保护机制，使得服务不可用时会立刻从服务注册表中删除该服务
+    eviction-interval-timer-in-ms: 2000 #2s超时

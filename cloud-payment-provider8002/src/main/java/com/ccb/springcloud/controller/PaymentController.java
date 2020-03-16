@@ -6,7 +6,6 @@ import com.ccb.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +22,7 @@ public class PaymentController {
     private PaymentService paymentService;
 
     @Resource
-    private DiscoveryClient discoveryClient;
+    private DiscoveryClient discoveryClient; //可以用户获取在注册中心中的服务信息
 
     @Value("${server.port}")
     private Integer port;
@@ -40,7 +39,7 @@ public class PaymentController {
     @ResponseBody
     public CommonResult getPayment(@PathVariable("id") Long id) {
         Payment res = paymentService.getPayment(id);
-        if (res != null) return new CommonResult(200, "success from"+port, res);
+        if (res != null) return new CommonResult(200, "success from "+port, res);
         else return new CommonResult(444, "fail", null);
     }
 
