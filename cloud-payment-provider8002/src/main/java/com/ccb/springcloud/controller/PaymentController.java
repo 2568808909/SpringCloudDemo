@@ -39,18 +39,23 @@ public class PaymentController {
     @ResponseBody
     public CommonResult getPayment(@PathVariable("id") Long id) {
         Payment res = paymentService.getPayment(id);
-        if (res != null) return new CommonResult(200, "success from "+port, res);
+        if (res != null) return new CommonResult(200, "success from " + port, res);
         else return new CommonResult(444, "fail", null);
     }
 
     @GetMapping("/discovery")
-    public DiscoveryClient discovery(){
+    public DiscoveryClient discovery() {
         List<String> services = discoveryClient.getServices();
         services.forEach(log::info);
         List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
         for (ServiceInstance instance : instances) {
-            log.info("*****{} {} {}",instance.getHost(),instance.getPort(),instance.getInstanceId());
+            log.info("*****{} {} {}", instance.getHost(), instance.getPort(), instance.getInstanceId());
         }
         return this.discoveryClient;
+    }
+
+    @GetMapping("/lb")
+    public Integer lb() {
+        return port;
     }
 }
