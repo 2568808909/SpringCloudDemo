@@ -14,3 +14,6 @@ ribbon:
   ReadTimeout: 3000
   #指建立连接所需要的时间，使用与网络状况正常的情况下，两端连接所用时间
   ConnectTimeout: 1000
+logging:
+  level:
+    com.ccb.springcloud.service.feign.PaymentFeign: debug
