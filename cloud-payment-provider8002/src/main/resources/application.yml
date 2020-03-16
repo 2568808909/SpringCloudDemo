@@ -14,7 +14,8 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://eureka7001:7001/eureka,http://eureka7003:7003/eureka,http://eureka7002:7002/eureka
+      #defaultZone: http://eureka7001:7001/eureka,http://eureka7003:7003/eureka,http://eureka7002:7002/eureka
+      defaultZone: http://eureka7003:7003/eureka #使用单机版Eureka
   instance:
     prefer-ip-address: true   #鼠标指向服务时，左下角显示该服务的ip
     instance-id: payment8002  #在Eureka显示服务时不显示主机名，而是显示这个配置
