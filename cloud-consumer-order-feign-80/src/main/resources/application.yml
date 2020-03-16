@@ -16,4 +16,5 @@ ribbon:
   ConnectTimeout: 1000
 logging:
   level:
+    #这个接口的调用日志以debug级别进行打印
     com.ccb.springcloud.service.feign.PaymentFeign: debug
