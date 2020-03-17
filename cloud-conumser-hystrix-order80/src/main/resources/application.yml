@@ -13,7 +13,7 @@ ribbon:
   #值得是建立连接后从服务器读取可用资源的时间
   ReadTimeout: 5000
   #指建立连接所需要的时间，使用与网络状况正常的情况下，两端连接所用时间
-  ConnectTimeout: 1000
+  ConnectTimeout: 5000
 logging:
   level:
     #这个接口的调用日志以debug级别进行打印
@@ -21,3 +21,11 @@ logging:
 feign:
   hystrix:
     enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            #feign fallback的超时在此配置
+            timeoutInMilliseconds: 5000
