@@ -31,7 +31,7 @@ public class PaymentHystrixServiceImpl implements PaymentHystrixService {
     @HystrixCommand(fallbackMethod = "circuitBreakerFallback", commandProperties = {
             @HystrixProperty(name = "circuitBreaker.enabled", value = "true"),  //开启断路器
             @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"), //请求次数
-            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"), //时间窗口周期
+            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"), //快照时间窗口，在这个窗口时间内，失败率达到一定程度时会打开断路器
             @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60") //失败率
     })
     public String circuitBreakerTest(Integer id) {
