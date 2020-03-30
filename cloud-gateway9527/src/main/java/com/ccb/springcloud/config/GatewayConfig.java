@@ -16,7 +16,8 @@ public class GatewayConfig {
         return builder
                 .routes()
                 .route("path_routes_ccb",
-                        r-> r.path("/**")    //**代表匹配所有该uri下的路径
+                        //错误原因：这里配置为/**，使得所有路径都会跑到https://news.baidu.com，这里的优先级是比配置文件高的
+                        r-> r.path("/guonei")    //**代表匹配所有该uri下的路径
                                 .uri("https://news.baidu.com"))
                 .build();
     }
