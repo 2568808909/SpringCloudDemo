@@ -19,6 +19,12 @@ spring:
           uri: lb://cloud-payment-service
           predicates:
             - Path=/payment/lb/**
+#            - After=2020-03-31T19:35:54.532+08:00[Asia/Shanghai] #设定生效时间，After为在设定时间之后生效，Before为在设定时间之前生效，Between在设定时间之间生效
+#            - Cookie=username,ccb  #要带有key为username，value为ccb的Cookie才可以访问，这里的value是一个正则表达式  curl http://localhost:9527/payment/lb --cookie "username:ccb"
+#            - Header=X-Request-Id,\d+ #请求的Header要带有X-Request-Id这个参数，并且值要是数字(正)  curl http://localhost:9527/payment/lb -H "X-Request-Id:123"
+#            - Host=**.ccb.com,**.jt.com #请求带有所规定的Host才可访问  curl http://localhost:9527/payment/lb -H "Host: www.ccb.com"
+#            - Method=GET  #规定只有get方法可以访问
+#            - Query=username,\d+  #http请求要带有username这个参数，且其值为整数才能路由 curl http://localhost:9527/payment/lb?username=123
 eureka:
   client:
     register-with-eureka: true
