@@ -6,6 +6,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+/**
+ * 使用代码配置网关，也可以在application,yml文件中配置
+ */
 public class GatewayConfig {
 
     @Bean
