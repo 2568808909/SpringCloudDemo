@@ -1,5 +1,5 @@
 server:
-  port: 3355
+  port: 3366
 spring:
   application:
     name: cloud-config-client
@@ -11,7 +11,7 @@ spring:
       uri: http://localhost:3344  #配置中心地址  上述配置拼起来就是 http://localhost:3344/master/config-dev.yml
   kafka:
     bootstrap-servers: localhost:9092
-##暴露监控端点，但是使用了bus总线后就不需要在暴露了
+##暴露监控端点
 #management:
 #  endpoints:
 #    web:
