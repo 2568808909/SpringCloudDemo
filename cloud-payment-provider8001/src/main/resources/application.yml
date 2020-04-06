@@ -9,6 +9,12 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/cloud2020?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: org.gjt.mm.mysql.Driver
+  zipkin:
+    base-url: localhost:9411      #zipkin-server的地址
+  sleuth:
+    sampler:
+      #设置采样率，取值在0~1之间，1代表全部采集
+      probability: 1
 eureka:
   client:
     register-with-eureka: true
