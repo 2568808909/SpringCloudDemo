@@ -15,4 +15,4 @@ management:
     jmx:
       exposure:
         include: "*"
-# ${spring.application.name}-${spring.profiles.active}-${spring.cloud.config.file-extension}
+# 拉取的配置名格式${spring.application.name}-${spring.profiles.active}.${spring.cloud.config.file-extension}
